@@ -1,35 +1,134 @@
-<!-- index.html -->
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Ayodhya Tourism Services</title>
-  <link href="style.css" rel="stylesheet" />
-</head>
-<body>
-  <header>
-    <h1>Welcome to Ayodhya Tourism</h1>
-    <p>Discover Ram Mandir, local tours, food & culture</p>
-  </header>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ayodhya Tourism Services</title>
+    <link href="https://fonts.googleapis.com/css2?family=Yatra+One&display=swap" rel="stylesheet" />
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <style>
+      body {
+        font-family: 'Yatra One', cursive;
+      }
+      .bg-video {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vh;
+        object-fit: cover;
+        z-index: -1;
+        opacity: 0.6;
+      }
+    </style>
+  </head>
+  <body class="text-white bg-black">
+    <!-- Background Video -->
+    <video id="bgVideo" autoplay muted loop class="bg-video">
+      <source src="/assets/videos/ayodhya-day.mp4" type="video/mp4">
+    </video>
 
-  <main>
-    <section>
-      <h2>🌄 Book Your Experience</h2>
-      <p>Choose from religious, heritage, and adventure tours around Ayodhya.</p>
+    <!-- Header -->
+    <header class="flex justify-between items-center p-4 bg-black bg-opacity-70">
+      <h1 class="text-2xl">Ayodhya Tourism</h1>
+      <nav class="space-x-4 hidden md:flex">
+        <a href="#" class="hover:underline">Explore</a>
+        <a href="#" class="hover:underline">Hotels</a>
+        <a href="#" class="hover:underline">Food</a>
+        <a href="#" class="hover:underline">Transport</a>
+      </nav>
+      <div class="flex space-x-4 items-center">
+        <button id="toggleTheme">🌗</button>
+        <a href="#account"><img src="/assets/icons/user.svg" alt="Account" class="w-6 h-6"></a>
+      </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="text-center mt-20">
+      <h2 class="text-4xl md:text-5xl mb-6">Experience Divine Ayodhya</h2>
+      <div class="space-y-4 md:space-x-4 md:space-y-0 md:flex md:justify-center">
+        <button class="bg-yellow-500 px-4 py-2 rounded">Explore Packages</button>
+        <button class="bg-yellow-500 px-4 py-2 rounded">Book Hotels</button>
+        <button class="bg-yellow-500 px-4 py-2 rounded">Dining & Food</button>
+        <button class="bg-yellow-500 px-4 py-2 rounded">Rentals & Transport</button>
+      </div>
     </section>
 
-    <section>
-      <h2>🏨 Hotel Bookings</h2>
-      <p>Comfortable stays in Ayodhya's best-rated hotels, as per your budget.</p>
+    <!-- Why Choose Us -->
+    <section class="my-16 text-center">
+      <h3 class="text-2xl mb-6">Why Choose Us</h3>
+      <div class="grid grid-cols-2 md:grid-cols-3 gap-4 max-w-5xl mx-auto">
+        <div>✔️ Affordable Rates</div>
+        <div>✔️ Local Experts</div>
+        <div>✔️ Verified Properties</div>
+        <div>✔️ All-in-One Booking</div>
+        <div>✔️ 24/7 Support</div>
+        <div>✔️ Multilingual Guides</div>
+      </div>
+      <p class="mt-6 max-w-2xl mx-auto px-4">
+        AyodhyaTourism.Services is designed to make your pilgrimage and spiritual experience convenient, affordable, and memorable. With hand-picked options and local knowledge, your journey is in safe hands.
+      </p>
     </section>
-  </main>
 
-  <footer>
-    <p>📧 Contact: info@ayodhyatourism.services</p>
-    <p>© 2025 AyodhyaTourism.Services</p>
-  </footer>
-  <button class="toggle-mode" onclick="document.body.classList.toggle('dark-mode')">🌙 Toggle Mode</button>
+    <!-- Our Services -->
+    <section class="my-16 text-center">
+      <h3 class="text-2xl mb-6">Our Services</h3>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl mx-auto">
+        <div>📍 Tour Packages</div>
+        <div>🏨 Hotels & Homestays</div>
+        <div>🚕 Transport Rentals</div>
+        <div>🍽️ Dining & Catering</div>
+      </div>
+    </section>
 
-</body>
+    <!-- Testimonials -->
+    <section class="my-16 text-center">
+      <h3 class="text-2xl mb-6">What Our Guests Say</h3>
+      <div class="flex justify-center items-center space-x-4 overflow-x-auto px-4">
+        <div class="bg-white text-black p-4 rounded w-48 opacity-60 hover:opacity-100 transform hover:scale-105 transition">
+          “Peaceful stay!”<br />– Sita
+        </div>
+        <div class="bg-white text-black p-4 rounded w-64 font-bold">“Amazing experience!”<br />– Raj</div>
+        <div class="bg-white text-black p-4 rounded w-48 opacity-60 hover:opacity-100 transform hover:scale-105 transition">
+          “Loved the food and ease of booking!”<br />– Mohan
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="grid md:grid-cols-2 gap-6 bg-black bg-opacity-80 p-6 text-sm">
+      <div>
+        <h4 class="text-lg mb-2">Explore</h4>
+        <ul>
+          <li><a href="#">Hotels</a></li>
+          <li><a href="#">Packages</a></li>
+          <li><a href="#">Transport</a></li>
+          <li><a href="#">Food</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4 class="text-lg mb-2">Contact</h4>
+        <p>Email: contact@ayodhyatourism.services</p>
+        <p>Phone: +91-XXXXXXXXXX</p>
+        <p>Location: Ayodhya, India</p>
+        <div class="flex space-x-4 mt-2">
+          <a href="#">Facebook</a>
+          <a href="#">Instagram</a>
+          <a href="#">YouTube</a>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Theme Toggle Script -->
+    <script>
+      document.getElementById('toggleTheme').addEventListener('click', () => {
+        const video = document.getElementById('bgVideo');
+        const current = video.getAttribute('src');
+        const newSrc = current.includes('day') ? '/assets/videos/ayodhya-night.mp4' : '/assets/videos/ayodhya-day.mp4';
+        video.setAttribute('src', newSrc);
+        video.load();
+        video.play();
+      });
+    </script>
+  </body>
 </html>
