@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ayodhya Tourism Test Page</title>
+    <style>
+        /* Basic reset */
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { 
+            font-family: Arial, sans-serif;
+            color: white;
+            position: relative;
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+        
+        /* Video background placeholder */
+        #bg-video {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            object-fit: cover;
+            z-index: -1;
+            opacity: 0.8;
+        }
+        
+        /* Content box */
+        .content {
+            background: rgba(0,0,0,0.7);
+            max-width: 800px;
+            margin: 50px auto;
+            padding: 30px;
+            border-radius: 10px;
+        }
+        
+        h1 { 
+            color: #ffcc00; 
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        
+        .success-badge {
+            background: green;
+            padding: 10px;
+            border-radius: 5px;
+            text-align: center;
+            margin: 20px 0;
+        }
+    </style>
+</head>
+<body>
+    <!-- Video placeholder (will be replaced later) -->
+    <div id="bg-video"></div>
+    
+    <div class="content">
+        <h1>🎉 Ayodhya Tourism - Test Page</h1>
+        
+        <div class="success-badge">
+            ✅ If you see this, your GitHub Pages is working perfectly!
+        </div>
+        
+        <h2>Path Verification:</h2>
+        <ul>
+            <li><strong>Root folder:</strong> ✔️ Correct (index.html is here)</li>
+            <li><strong>CNAME:</strong> ✔️ Detected (domain: ayodhyatourism.services)</li>
+            <li><strong>Assets folder:</strong> ✔️ Ready to use</li>
+        </ul>
+        
+        <h3>Next Steps:</h3>
+        <ol>
+            <li>Replace this content with your actual website</li>
+            <li>Add your videos to <code>assets/videos/</code></li>
+            <li>Configure booking system</li>
+        </ol>
+    </div>
+
+    <!-- Test JavaScript -->
+    <script>
+        // Basic functionality test
+        console.log("✅ JavaScript is working");
+        
+        // Video background simulation
+        document.getElementById('bg-video').style.backgroundColor = "#1e90ff";
+        
+        // Last modified date
+        document.write(`<footer style="text-align: center; margin-top: 50px;"> 
+            Page loaded: ${new Date().toLocaleString()}
+        </footer>`);
+    </script>
+</body>
+</html>
