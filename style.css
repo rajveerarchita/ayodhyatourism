@@ -1,0 +1,691 @@
+/* homepage.css - Modern Styles for Ayodhya Tourism */
+
+/* ===== VARIABLES & RESETS ===== */
+:root {
+  /* Color Palette */
+  --primary: #FFD700; /* Gold */
+  --primary-dark: #FFC000;
+  --secondary: #4B5320; /* Army Green */
+  --dark: #1A1A1A;
+  --light: #F8F8F8;
+  --accent: #E63946; /* For CTAs */
+  
+  /* Fonts */
+  --font-main: 'Poppins', sans-serif;
+  --font-heading: 'Playfair Display', serif;
+  
+  /* Spacing */
+  --section-padding: 6rem 0;
+  --container-width: min(90%, 1200px);
+  
+  /* Shadows */
+  --shadow-sm: 0 2px 8px rgba(0,0,0,0.1);
+  --shadow-md: 0 4px 12px rgba(0,0,0,0.15);
+  --shadow-lg: 0 8px 24px rgba(0,0,0,0.2);
+  
+  /* Transitions */
+  --transition-fast: all 0.2s ease;
+  --transition-normal: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-main);
+  color: var(--dark);
+  background: var(--light);
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+
+/* ===== TYPOGRAPHY ===== */
+h1, h2, h3 {
+  font-family: var(--font-heading);
+  line-height: 1.2;
+  font-weight: 700;
+}
+
+h1 {
+  font-size: clamp(2.5rem, 5vw, 4rem);
+  background: linear-gradient(45deg, var(--primary), var(--primary-dark));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  margin-bottom: 1.5rem;
+}
+
+h2 {
+  font-size: clamp(2rem, 4vw, 3rem);
+  color: var(--secondary);
+  position: relative;
+  display: inline-block;
+  margin-bottom: 3rem;
+}
+
+h2::after {
+  content: '';
+  position: absolute;
+  bottom: -10px;
+  left: 0;
+  width: 60%;
+  height: 4px;
+  background: var(--primary);
+}
+
+/* ===== LAYOUT UTILITIES ===== */
+.container {
+  width: var(--container-width);
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+.section {
+  padding: var(--section-padding);
+  position: relative;
+}
+
+/* ===== HEADER ===== */
+.main-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  padding: 1.5rem 0;
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(10px);
+  box-shadow: var(--shadow-sm);
+  z-index: 1000;
+  transition: var(--transition-normal);
+}
+
+.main-header.scrolled {
+  padding: 1rem 0;
+  box-shadow: var(--shadow-md);
+}
+
+.logo img {
+  height: 40px;
+  transition: var(--transition-fast);
+}
+
+.main-nav ul {
+  display: flex;
+  gap: 2rem;
+  list-style: none;
+}
+
+.main-nav a {
+  text-decoration: none;
+  color: var(--dark);
+  font-weight: 500;
+  position: relative;
+  padding: 0.5rem 0;
+}
+
+.main-nav a::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: var(--primary);
+  transition: var(--transition-normal);
+}
+
+.main-nav a:hover::after,
+.main-nav a.active::after {
+  width: 100%;
+}
+
+/* ===== HERO SECTION ===== */
+.hero {
+  height: 100vh;
+  min-height: 800px;
+  display: flex;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(45deg, rgba(0,0,0,0.7), rgba(0,0,0,0.3));
+  z-index: 1;
+}
+
+.hero-bg {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  min-width: 100%;
+  min-height: 100%;
+  object-fit: cover;
+  z-index: 0;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+  max-width: 800px;
+  animation: fadeInUp 1s ease-out;
+}
+
+.hero p {
+  font-size: clamp(1rem, 2vw, 1.25rem);
+  color: white;
+  margin-bottom: 2rem;
+  opacity: 0.9;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ===== BUTTONS ===== */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.8rem 4rem;
+  border-radius: 90px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: var(--transition-normal);
+  border: none;
+  cursor: pointer;
+}
+
+.btn-primary {
+  background: var(--primary);
+  color: var(--dark);
+  box-shadow: 0 4px 15px rgba(255, 215, 0, 0.4);
+}
+
+.btn-primary:hover {
+  background: var(--primary-dark);
+  transform: translateY(-3px);
+  box-shadow: 0 6px 20px rgba(255, 215, 0, 0.6);
+}
+
+.btn-whatsapp {
+  background: #25D366;
+  color: white;
+}
+
+.btn-whatsapp:hover {
+  background: #128C7E;
+}
+
+/* ===== TOUR CARDS ===== */
+.tour-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+  margin-top: 3rem;
+}
+
+.tour-card {
+  background: white;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: var(--shadow-sm);
+  transition: var(--transition-normal);
+  position: relative;
+}
+
+.tour-card:hover {
+  transform: translateY(-10px);
+  box-shadow: var(--shadow-lg);
+}
+
+.tour-img {
+  height: 220px;
+  overflow: hidden;
+  position: relative;
+}
+
+.tour-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.8s ease;
+}
+
+.tour-card:hover .tour-img img {
+  transform: scale(1.1);
+}
+
+.tour-badge {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  background: var(--accent);
+  color: white;
+  padding: 0.3rem 0.8rem;
+  border-radius: 50px;
+  font-size: 0.8rem;
+  font-weight: 600;
+}
+
+.tour-content {
+  padding: 1.5rem;
+}
+
+.tour-meta {
+  display: flex;
+  gap: 1rem;
+  margin: 0.8rem 0;
+  color: #666;
+  font-size: 0.9rem;
+}
+
+/* ===== TESTIMONIALS ===== */
+.testimonial-slider {
+  margin-top: 3rem;
+  position: relative;
+}
+
+.testimonial {
+  background: white;
+  padding: 2rem;
+  border-radius: 12px;
+  box-shadow: var(--shadow-sm);
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.rating {
+  color: var(--primary);
+  margin-bottom: 1rem;
+}
+
+.testimonial p {
+  font-style: italic;
+  margin-bottom: 1.5rem;
+  position: relative;
+  padding-left: 2rem;
+}
+
+.testimonial p::before {
+  content: '"';
+  position: absolute;
+  left: 0;
+  top: -0.5rem;
+  font-size: 3rem;
+  color: rgba(0,0,0,0.1);
+  font-family: serif;
+}
+
+.author {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.author img {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid var(--primary);
+}
+
+/* ===== FOOTER ===== */
+.main-footer {
+  background: var(--dark);
+  color: white;
+  padding: 4rem 0 2rem;
+}
+
+.footer-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 3rem;
+  margin-bottom: 3rem;
+}
+
+.footer-col h3 {
+  color: var(--primary);
+  margin-bottom: 1.5rem;
+  font-size: 1.25rem;
+}
+
+.footer-col ul {
+  list-style: none;
+}
+
+.footer-col li {
+  margin-bottom: 0.8rem;
+}
+
+.footer-col a {
+  color: #ccc;
+  text-decoration: none;
+  transition: var(--transition-fast);
+}
+
+.footer-col a:hover {
+  color: var(--primary);
+}
+
+.social-links {
+  display: flex;
+  gap: 1rem;
+}
+
+.social-links a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  background: rgba(255,255,255,0.1);
+  border-radius: 50%;
+  color: white;
+  transition: var(--transition-fast);
+}
+
+.social-links a:hover {
+  background: var(--primary);
+  color: var(--dark);
+  transform: translateY(-3px);
+}
+
+.copyright {
+  border-top: 1px solid rgba(255,255,255,0.1);
+  padding-top: 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* ===== ANIMATIONS ===== */
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+.floating {
+  animation: float 3s ease-in-out infinite;
+}
+
+/* ===== RESPONSIVE ADJUSTMENTS ===== */
+@media (max-width: 768px) {
+  :root {
+    --section-padding: 4rem 0;
+  }
+  
+  .main-nav {
+    position: fixed;
+    top: 80px;
+    left: 0;
+    width: 100%;
+    background: white;
+    padding: 1rem;
+    box-shadow: var(--shadow-md);
+    transform: translateY(-150%);
+    transition: var(--transition-normal);
+  }
+  
+  .main-nav.active {
+    transform: translateY(0);
+  }
+  
+  .hero {
+    min-height: 600px;
+  }
+  
+  .hero-content {
+    text-align: center;
+  }
+  
+  .btn-group {
+    flex-direction: column;
+    gap: 1rem;
+  }
+}
+/* ===== GLOBAL RESPONSIVE STYLES ===== */
+
+/* 1. Base Adjustments for All Screens */
+:root {
+  /* Fluid spacing */
+  --section-padding: clamp(3rem, 5vw, 6rem) 0;
+  --container-padding: clamp(1rem, 3vw, 2rem);
+  
+  /* Fluid typography */
+  --text-base: clamp(1rem, 0.75vw + 0.75rem, 1.125rem);
+  --text-lg: clamp(1.25rem, 1vw + 1rem, 1.5rem);
+}
+
+html {
+  font-size: 100%;
+  overflow-x: hidden; /* Prevent horizontal scroll */
+}
+
+body {
+  font-size: var(--text-base);
+}
+
+/* 2. Mobile-First Header */
+.main-header {
+  padding: 1rem 0;
+}
+
+.logo img {
+  height: clamp(36px, 8vw, 48px); /* Scales between 36-48px */
+}
+
+/* Mobile menu toggle (hidden by default) */
+.menu-toggle {
+  display: none;
+  background: none;
+  border: none;
+  color: var(--dark);
+  font-size: 1.5rem;
+  cursor: pointer;
+}
+
+.main-nav {
+  transition: all 0.4s ease;
+}
+
+/* 3. Hero Section Adaptations */
+.hero {
+  min-height: min(100vh, 667px); /* Cap height on small devices */
+  padding-top: 70px; /* Account for fixed header */
+}
+
+.hero-content {
+  padding: 0 var(--container-padding);
+  text-align: center;
+}
+
+/* 4. Tour Grid Responsiveness */
+.tour-grid {
+  grid-template-columns: repeat(auto-fit, minmax(min(280px, 100%), 1fr));
+}
+
+/* 5. Testimonial Cards */
+.testimonial {
+  padding: 1.5rem;
+  margin: 0 var(--container-padding);
+}
+
+/* ===== BREAKPOINTS ===== */
+
+/* Small phones (portrait) */
+@media (max-width: 480px) {
+  /* Stack header elements */
+  .main-header .container {
+    flex-direction: column;
+    gap: 1rem;
+  }
+  
+  /* Hide desktop nav, show mobile toggle */
+  .main-nav {
+    display: none;
+    width: 100%;
+    text-align: center;
+  }
+  
+  .main-nav.active {
+    display: block;
+  }
+  
+  .menu-toggle {
+    display: block;
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+  }
+  
+  /* Adjust hero padding */
+  .hero-content {
+    padding: 0 1rem;
+  }
+  
+  /* Single column layout for very small screens */
+  .tour-grid, 
+  .footer-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Tablets and larger phones (landscape) */
+@media (min-width: 481px) and (max-width: 768px) {
+  /* 2-column layout */
+  .tour-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+  /* Center-align header content */
+  .main-header .container {
+    flex-wrap: wrap;
+    justify-content: center;
+    row-gap: 1rem;
+  }
+}
+
+/* Small laptops and tablets (landscape) */
+@media (min-width: 769px) and (max-width: 1024px) {
+  /* Slightly reduce font sizes */
+  h1 {
+    font-size: clamp(2rem, 4vw, 3rem);
+  }
+  
+  /* Adjust header spacing */
+  .header-cta {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+}
+
+/* Large screens */
+@media (min-width: 1025px) {
+  /* Add hover effects only on desktop */
+  .tour-card:hover {
+    transform: translateY(-10px);
+  }
+  
+  /* Wider container */
+  .container {
+    max-width: 1200px;
+  }
+}
+
+/* ===== TOUCH DEVICE DETECTION ===== */
+@media (hover: none) {
+  /* Disable hover effects on touch devices */
+  .btn:hover, 
+  .tour-card:hover {
+    transform: none;
+  }
+}
+
+/* ===== ORIENTATION-SPECIFIC ===== */
+@media (orientation: portrait) {
+  /* Portrait-specific adjustments */
+  .hero {
+    min-height: min(100vh, 812px); /* iPhone 13 height */
+  }
+}
+
+@media (orientation: landscape) {
+  /* Landscape-specific adjustments */
+  .hero-content {
+    max-width: 70%;
+  }
+}
+
+/* ===== SAFARI SPECIFIC FIXES ===== */
+@supports (-webkit-touch-callout: none) {
+  .hero {
+    min-height: -webkit-fill-available;
+  }
+}
+
+/* ===== RESPONSIVE IMAGES ===== */
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+/* Art direction for different screens */
+.hero-bg {
+  display: block;
+}
+
+/* Hide mobile video if desktop video exists */
+@media (min-width: 769px) {
+  .mobile-bg {
+    display: none;
+  }
+}
+
+/* ===== FORM ELEMENTS ===== */
+input, 
+select, 
+textarea,
+button {
+  font-size: clamp(1rem, 1.2vw, 1.2rem);
+  min-height: 44px; /* Apple touch target minimum */
+}
+
+/* ===== UTILITY CLASSES ===== */
+.hidden-mobile {
+  display: none;
+}
+
+@media (min-width: 769px) {
+  .hidden-mobile {
+    display: block;
+  }
+  
+  .hidden-desktop {
+    display: none;
+  }
+}
