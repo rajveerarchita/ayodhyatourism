@@ -1,3 +1,6 @@
 .box{
-    background-image: url();
+    background-image: url(IMG-20250817-WA0020.jpg);
+    width: 80vh;
+    top: 0;
+    position: absolute;
 }
